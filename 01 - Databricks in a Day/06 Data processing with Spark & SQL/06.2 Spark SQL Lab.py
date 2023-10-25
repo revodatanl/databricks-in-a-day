@@ -115,6 +115,6 @@ display(short_sql_df)
 # COMMAND ----------
 
 verify_rows = short_sql_df.take(5)
-assert (short_sql_df.select("trip_distance").max() < 10 and len(verify_rows) == 5), "Incorrect filter condition"
+assert (short_sql_df.agg({"trip_distance" : "max"}).collect()[0][0] < 10 and len(verify_rows) == 5), "Incorrect filter condition"
 del verify_rows
 print("All test pass")
