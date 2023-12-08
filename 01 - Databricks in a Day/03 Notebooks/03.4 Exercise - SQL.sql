@@ -1,6 +1,6 @@
 -- Databricks notebook source
 -- MAGIC %md
--- MAGIC # Attach cluster
+-- MAGIC # Let's write some SQL
 -- MAGIC
 -- MAGIC Make sure to attach a cluster to this notebook!
 
@@ -13,28 +13,12 @@
 
 -- COMMAND ----------
 
-SELECT "Hello Databricks";
+-- TODO: print something
 
 -- COMMAND ----------
 
 -- MAGIC %md
 -- MAGIC # Exercise 2
--- MAGIC
--- MAGIC Use Markdown formatting to create a title and a list of various items.
-
--- COMMAND ----------
-
--- MAGIC %md
--- MAGIC ### Analysis Overview
--- MAGIC
--- MAGIC - Step 1
--- MAGIC - Step 2
--- MAGIC - Step 3
-
--- COMMAND ----------
-
--- MAGIC %md
--- MAGIC # Exercise 3
 -- MAGIC
 -- MAGIC Using SQL, read the first 10 rows of the `samples.nyctaxi.trip` table.
 
@@ -49,12 +33,14 @@ SELECT * FROM samples.nyctaxi.trips LIMIT 10;
 
 -- COMMAND ----------
 
-DESCRIBE samples.nyctaxi.trips;
+-- TODO: DESCRIBE the schema of the trips table
 
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC Filter the `DataFrame` to include only rows for which the column `trip_distance` is greater than 10.
+-- MAGIC # Exercise 3
+-- MAGIC
+-- MAGIC Filter the DataFrame to include only rows for which the column trip_distance is greater than 10
 
 -- COMMAND ----------
 
