@@ -1,6 +1,4 @@
 -- Databricks notebook source
--- INCLUDE_HEADER_TRUE
--- INCLUDE_FOOTER_TRUE
 
 -- COMMAND ----------
 
