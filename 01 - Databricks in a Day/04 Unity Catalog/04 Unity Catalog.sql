@@ -8,11 +8,11 @@
 -- MAGIC - Create a managed table and add it to the schema.
 -- MAGIC - Query the table using the three-level namespace.
 -- MAGIC - Manage data access permissions on the table.
--- MAGIC - Explore grants on various objects in Unity Catalog
+-- MAGIC - Explore grants on various objects in Unity Catalog.
 -- MAGIC
 -- MAGIC ## Requirements
 -- MAGIC
--- MAGIC - The workspace must be attached to a Unity Catalog metastore. See https://docs.databricks.com/data-governance/unity-catalog/get-started.html.
+-- MAGIC - The workspace must be attached to a Unity Catalog metastore.
 -- MAGIC - Notebook is attached to a cluster that uses DBR 11.1 or higher and uses the single user or shared cluster access mode.
 
 -- COMMAND ----------
@@ -30,7 +30,7 @@
 -- MAGIC
 -- MAGIC     <catalog>.<schema>.<table>`
 -- MAGIC
--- MAGIC The following query exemplifies this:
+-- MAGIC Here's an example:
 -- MAGIC
 -- MAGIC     SELECT * FROM mycatalog.myschema.mytable;
 -- MAGIC
@@ -59,8 +59,8 @@
 
 -- COMMAND ----------
 
---- create a new catalog
-CREATE CATALOG IF NOT EXISTS quickstart_catalog;
+-- TODO: create a new catalog named 'quick_start'
+-- HINT: CREATE CATALOG IF NOT EXISTS your_catalog_name;
 
 -- COMMAND ----------
 
@@ -71,32 +71,32 @@ CREATE CATALOG IF NOT EXISTS quickstart_catalog;
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC SQL developers will probably also be familiar with the **`USE`** statement to select a default schema, thereby shortening queries by not having to specify it all the time. To extend this convenience while dealing with the extra level in the namespace, Unity Catalog augments the language with two additional statements, shown in the examples below:
+-- MAGIC SQL developers will probably also be familiar with the **`USE`** statement to select a default schema, shortening queries by not having to specify it all the time. 
+-- MAGIC Unity Catalog adds two additional statements to the language:
 -- MAGIC
 -- MAGIC     USE CATALOG mycatalog;
 -- MAGIC     USE SCHEMA myschema;
 
 -- COMMAND ----------
 
--- Set the current catalog
-USE CATALOG quickstart_catalog;
+-- TODO: Set the current catalog
 
 -- COMMAND ----------
 
---- Show all catalogs in a metastore
+-- Show all catalogs in a metastore
 SHOW CATALOGS;
 
 -- COMMAND ----------
 
---- Grant create schema, create table, & use catalog permissions to all users on the account
---- This also works for other account-level groups and individual users
+-- Grant create schema, create table, & use catalog permissions to all users on the account
+-- This also works for other account-level groups and individual users
 GRANT CREATE SCHEMA, CREATE TABLE, USE CATALOG
 ON CATALOG quickstart_catalog
 TO `account users`;
 
 -- COMMAND ----------
 
---- Check grants on the quickstart catalog
+-- Check grants on the quickstart catalog
 SHOW GRANT ON CATALOG quickstart_catalog;
 
 -- COMMAND ----------
@@ -118,8 +118,8 @@ COMMENT "A new Unity Catalog schema called quickstart_schema";
 
 -- COMMAND ----------
 
--- Show schemas in the selected catalog
-SHOW SCHEMAS;
+-- TODO: Show schemas in the selected catalog
+
 
 -- COMMAND ----------
 
@@ -146,12 +146,12 @@ DESCRIBE SCHEMA EXTENDED quickstart_schema;
 
 -- COMMAND ----------
 
--- Set the current schema
-USE quickstart_schema;
+-- TODO: Use the current schema
+
 
 -- COMMAND ----------
 
--- Create a managed Delta table and insert two records
+-- Create a managed Delta table and insert some records
 CREATE TABLE IF NOT EXISTS quickstart_table AS (SELECT * FROM samples.nyctaxi.trips LIMIT 1000)
 
 -- COMMAND ----------
@@ -257,17 +257,13 @@ FROM quickstart_table;
 
 -- COMMAND ----------
 
--- Grant USE SCHEMA on a schema
-GRANT USE SCHEMA
-ON SCHEMA quickstart_schema
-TO `account users`;
+-- TODO: Grant USE SCHEMA on a schema to `account users`
+
 
 -- COMMAND ----------
 
--- Grant SELECT privilege on a table to a principal
-GRANT SELECT
-ON TABLE quickstart_schema.quickstart_table
-TO `account users`;
+-- TODO: Grant SELECT privilege on a table to `account users`
+
 
 -- COMMAND ----------
 
@@ -282,9 +278,8 @@ ON TABLE quickstart_catalog.quickstart_schema.quickstart_table;
 
 -- COMMAND ----------
 
--- Show grants on quickstart_schema
-SHOW GRANTS
-ON SCHEMA quickstart_catalog.quickstart_schema;
+-- TODO: Show grants on quickstart_schema
+
 
 -- COMMAND ----------
 
@@ -324,6 +319,16 @@ SELECT * FROM short_trips
 -- COMMAND ----------
 
 -- MAGIC %md
+-- MAGIC Your turn! Create a view by filtering the quickstart_table, using a criterion of your choice.
+
+-- COMMAND ----------
+
+-- TODO: Create a view from quickstart_table
+
+
+-- COMMAND ----------
+
+-- MAGIC %md
 -- MAGIC ### Granting privileges to a view
 -- MAGIC Just like with tables, we can use use GRANT and REVOKE statements to manage access to views.
 -- MAGIC
@@ -331,13 +336,13 @@ SELECT * FROM short_trips
 
 -- COMMAND ----------
 
-GRANT SELECT ON VIEW short_trips to `account users`
+-- TODO: Grant SELECT on short_trips to `account users`
+
 
 -- COMMAND ----------
 
--- Show grants on short_trips
-SHOW GRANTS
-ON VIEW quickstart_catalog.quickstart_schema.short_trips;
+-- TODO: Show grants on short_trips
+
 
 -- COMMAND ----------
 
@@ -375,7 +380,7 @@ SELECT cc_mask('4916-4811-5814-8111') AS data
 
 -- MAGIC %md
 -- MAGIC ## Clean up
--- MAGIC Let's uncomment and run the following cell to remove the catalog that we created earlier. The **`CASCADE`** qualifier will remove the catalog along with any contained elements.
+-- MAGIC Let's uncomment and run the following cell to remove the catalog that we have created. The **`CASCADE`** qualifier will remove the catalog along with any contained elements.
 
 -- COMMAND ----------
 
