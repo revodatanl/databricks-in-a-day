@@ -1,6 +1,6 @@
 # Databricks notebook source
 # MAGIC %md
-# MAGIC # Attach cluster
+# MAGIC # Let's write some Python
 # MAGIC
 # MAGIC Make sure to attach a cluster to this notebook!
 
@@ -8,12 +8,19 @@
 
 # MAGIC %md
 # MAGIC # Exercise 1
-# MAGIC
-# MAGIC Use the cell below to create a print statement in Python and run it using the attached cluster.
 
 # COMMAND ----------
 
 print("Hello Databricks!")
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC Use the cell below to create a print statement in Python and run it using the attached cluster.
+
+# COMMAND ----------
+
+# TODO: create a print statement
 
 # COMMAND ----------
 
@@ -30,6 +37,16 @@ print("Hello Databricks!")
 # MAGIC - Step 1
 # MAGIC - Step 2
 # MAGIC - Step 3
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC Use the cell below to create a title and a list of various items. Hint: if you are lost, double click on the Markdown cell above this one!
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC - [ ] TODO: create a title and a list
 
 # COMMAND ----------
 
@@ -77,3 +94,14 @@ filtered_data = data.filter(data.trip_distance > 10)
 # COMMAND ----------
 
 display(filtered_data)
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC ## Reference
+# MAGIC
+
+# COMMAND ----------
+
+# MAGIC %md
+# MAGIC - [Develop code in Databricks notebooks](https://docs.databricks.com/en/notebooks/notebooks-code.html)
