@@ -14,23 +14,59 @@
 -- COMMAND ----------
 
 -- MAGIC %md
--- MAGIC ### Updating a Dashboard
+-- MAGIC ## Accessing Dashboards
+-- MAGIC To access dashboards:
 -- MAGIC
--- MAGIC * Use the sidebar navigator to find the **Dashboards**
+-- MAGIC * Navigate to home page in Databricks SQL
+-- MAGIC   * Click the Databricks logo at the top of the side nav bar
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ## Sample dashboards
+-- MAGIC Databricks sample dashboards are pre-built visualizations that show some of the rich features of Databricks SQL for data warehousing. 
+-- MAGIC
+-- MAGIC You can import and use them from the Dashboard Samples Gallery, which you can access from the sidebar or by appending `/sql/dashboards/samples/` to your workspace URL. 
+-- MAGIC
+-- MAGIC To explore Sample dashboards:
+-- MAGIC
+-- MAGIC * Navigate to home page in Databricks SQL
+-- MAGIC   * Click the Databricks logo at the top of the side nav bar
+-- MAGIC * Locate the **Sample dashboards** and click **`Visit gallery`**
+-- MAGIC
+-- MAGIC Let's create one!
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ## Retail Revenue & Supply Chain sample
+-- MAGIC Click **`Import`** next to the **Retail Revenue & Supply Chain** option
+-- MAGIC   * Assuming you have a SQL warehouse available, this should load a dashboard and immediately display results
+-- MAGIC   * Click **Refresh** in the top right (the underlying data has not changed, but this is the button that would be used to pick up changes)
+
+-- COMMAND ----------
+
+-- MAGIC %md
+-- MAGIC ### Update the Dashboard
+-- MAGIC Use the sidebar navigator to find the **Dashboards**
 -- MAGIC   * Locate the sample dashboard you just loaded; it should be called **Retail Revenue & Supply Chain** and have your username under the **`Created By`** field. **NOTE**: the **My Dashboards** option on the right hand side can serve as a shortcut to filter out other dashboards in the workspace
 -- MAGIC   * Click on the dashboard name to view it
--- MAGIC * View the query behind the **Shifts in Pricing Priorities** plot
+-- MAGIC
+-- MAGIC View the query behind the **Shifts in Pricing Priorities** plot
 -- MAGIC   * Hover over the plot; three vertical dots should appear. Click on these
 -- MAGIC   * Select **View Query** from the menu that appears
--- MAGIC * Review the SQL code used to populate this plot
+-- MAGIC
+-- MAGIC Review the SQL code used to populate this plot
 -- MAGIC   * Note that 3 tier namespacing is used to identify the source table; this is a preview of new functionality to be supported by Unity Catalog
 -- MAGIC   * Click **`Run`** in the top right of the screen to preview the results of the query
--- MAGIC * Review the visualization
+-- MAGIC
+-- MAGIC Review the visualization
 -- MAGIC   * Under the query, a tab named **Table** should be selected; click **Price by Priority over Time** to switch to a preview of your plot
 -- MAGIC   * Click **Edit Visualization** at the bottom of the screen to review settings
 -- MAGIC   * Explore how changing settings impacts your visualization
 -- MAGIC   * If you wish to apply your changes, click **Save**; otherwise, click **Cancel**
--- MAGIC * Back in the query editor, click the **Add Visualization** button to the right of the visualization name
+-- MAGIC
+-- MAGIC Back in the query editor, click the **Add Visualization** button to the right of the visualization name
 -- MAGIC   * Create a bar graph
 -- MAGIC   * Set the **X Column** as **`Date`**
 -- MAGIC   * Set the **Y Column** as **`Total Price`**
@@ -38,7 +74,8 @@
 -- MAGIC   * Set **Stacking** to **`Stack`**
 -- MAGIC   * Leave all other settings as defaults
 -- MAGIC   * Click **Save**
--- MAGIC * Back in the query editor, click the default name for this visualization to edit it; change the visualization name to **`Stacked Price`**
+-- MAGIC
+-- MAGIC Back in the query editor, click the default name for this visualization to edit it; change the visualization name to **`Stacked Price`**
 -- MAGIC * Add the bottom of the screen, click the three vertical dots to the left of the **`Edit Visualization`** button
 -- MAGIC   * Select **Add to Dashboard** from the menu
 -- MAGIC   * Select your **`Retail Revenue & Supply Chain`** dashboard
