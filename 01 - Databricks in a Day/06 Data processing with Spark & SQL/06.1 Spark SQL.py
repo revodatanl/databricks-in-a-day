@@ -61,7 +61,7 @@ display(spark
         .table("samples.tpch.part")
         .select("p_name", "p_retailprice")
         .where("p_retailprice < 1000")
-        .orderBy("p_retailprice")
+        .orderBy("p_retailprice", ascending=False)
        )
 
 # COMMAND ----------
@@ -233,9 +233,9 @@ budget_df.printSchema()
 # COMMAND ----------
 
 (parts_df
-  .select("name", "price")
-  .where("price < 200")
-  .orderBy("price"))
+  .select("p_name", "p_retailprice")
+  .where("p_retailprice < 200")
+  .orderBy("p_retailprice"))
 
 # COMMAND ----------
 
@@ -251,9 +251,9 @@ budget_df.printSchema()
 # COMMAND ----------
 
 (parts_df
-  .select("name", "price")
-  .where("price < 200")
-  .orderBy("price")
+  .select("p_name", "p_retailprice")
+  .where("p_retailprice < 200")
+  .orderBy("p_retailprice")
   .show())
 
 # COMMAND ----------
