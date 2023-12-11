@@ -54,7 +54,7 @@ trips_df = FILL_IN
 
 # COMMAND ----------
 
-# TODO
+# TODO: Fill in logic to create filtered dataframe
 short_df = (trips_df
           .FILL_IN
          )
@@ -69,7 +69,7 @@ short_df = (trips_df
 
 # COMMAND ----------
 
-# TODO
+# TODO: Fill in logic for num_rows and rows
 num_rows = short_df.FILL_IN # total number of rows
 rows = short_df.FILL_IN # take the first 5 rows
 
