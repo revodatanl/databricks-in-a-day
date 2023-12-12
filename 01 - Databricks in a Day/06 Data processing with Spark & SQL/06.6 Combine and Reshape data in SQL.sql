@@ -90,7 +90,7 @@ SELECT * FROM customer_purchases
 -- MAGIC - The **`PIVOT`** clause follows the table name or subquery specified in a **`FROM`** clause, which is the input for the pivot table.
 -- MAGIC - Unique values in the pivot column are grouped and aggregated using the provided aggregate expression, creating a separate column for each unique value in the resulting pivot table.
 -- MAGIC
--- MAGIC The following code cell uses **`PIVOT`** to flatten out the item purchase information contained in several fields derived from the **`sales`** dataset. This flattened data format can be useful for dashboarding, but also useful for applying machine learning algorithms for inference or prediction.
+-- MAGIC The following code cell uses **`PIVOT`** to flatten out the item purchase information contained in several fields derived from the **`orders`** dataset. This flattened data format can be useful for dashboarding, but also useful for applying machine learning algorithms for inference or prediction.
 
 -- COMMAND ----------
 
@@ -107,21 +107,9 @@ PIVOT (
 
 -- COMMAND ----------
 
+-- Exercise: How do we PIVOT in Python?
+
+-- COMMAND ----------
+
 -- MAGIC %python
--- MAGIC '''
--- MAGIC transactionsDF = (item_purchasesDF
--- MAGIC     .groupBy("order_id", 
--- MAGIC         "email",
--- MAGIC         "transaction_timestamp", 
--- MAGIC         "total_item_quantity", 
--- MAGIC         "purchase_revenue_in_usd", 
--- MAGIC         "unique_items",
--- MAGIC         "items",
--- MAGIC         "item",
--- MAGIC         "name",
--- MAGIC         "price")
--- MAGIC     .pivot("item_id")
--- MAGIC     .sum("item.quantity")
--- MAGIC )
--- MAGIC display(transactionsDF)
--- MAGIC '''
+-- MAGIC
