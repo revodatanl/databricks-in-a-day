@@ -4,7 +4,7 @@
 # MAGIC # Spark SQL Lab
 # MAGIC
 # MAGIC ##### Tasks
-# MAGIC 1. Create a DataFrame from the **`sample.nyctaxi.trips`** table
+# MAGIC 1. Create a DataFrame from the **`samples.nyctaxi.trips`** table
 # MAGIC 1. Display the DataFrame and inspect its schema
 # MAGIC 1. Apply transformations to filter **`trip_distance`** to select only trips under 10 miles, and sort by **`tpep_pickup_datetime`**
 # MAGIC 1. Count results and take the first 5 rows
@@ -21,8 +21,8 @@
 # DBTITLE 0,--i18n-e0f3f405-8c97-46d1-8550-fb8ff14e5bd6
 # MAGIC %md
 # MAGIC
-# MAGIC ### 1. Create a DataFrame from the **`events`** table
-# MAGIC - Use SparkSession to create a DataFrame from the **`events`** table
+# MAGIC ### 1. Create a DataFrame from the **`trips`** table
+# MAGIC - Use SparkSession to create a DataFrame from the **`trips`** table
 
 # COMMAND ----------
 
@@ -46,7 +46,7 @@ trips_df = FILL_IN
 # DBTITLE 0,--i18n-76adfcb2-f182-485c-becd-9e569d4148b6
 # MAGIC %md
 # MAGIC
-# MAGIC ### 3. Apply transformations to filter and sort **`macOS`** events
+# MAGIC ### 3. Apply transformations to filter and sort.
 # MAGIC - Filter for rows where **`trip_distance`** is **`less than 10`**
 # MAGIC - Sort rows by **`tpep_pickup_datetime`**
 # MAGIC
