@@ -31,7 +31,7 @@ payload = {
 }
 
 # Setting the parameters
-LENGHT = 30  # in days
+LENGHT = 40  # in days
 now = datetime.now()
 today_formatted = now.strftime("%Y-%m-%d")
 extra_days = now + timedelta(days=LENGHT)
