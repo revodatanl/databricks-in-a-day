@@ -45,15 +45,15 @@ payload["flightList"][1]["to"] = extra_days_formatted
 
 # Hitting the API endpoint
 response = requests.post(
-    "https://be.wizzair.com/20.5.0/Api/search/timetable", headers=header, json=payload
+    "https://be.wizzair.com/20.6.0/Api/search/timetable", headers=header, json=payload
 )
-data = json.loads(response.content)
 
 # Handling the response from the server
 if response.raise_for_status():
     print("Something went wront with the request.")
-    print(response.status_code, data)
+    print(response.status_code)
 else:
+    data = json.loads(response.content)
     dbutils.fs.put(
         f"dbfs:/Volumes/databricks_training/raw/aviation/{today_formatted}_prices_EIN_BUD.json",
         json.dumps(data),
