@@ -17,7 +17,7 @@ resources:
       tasks:
         - task_key: source_extraction
           spark_python_task:
-            python_file: aviation_use_case/source_extraction.py
+            python_file: dbxin1d/src/aviation_use_case/source_extraction.py
             source: GIT
           job_cluster_key: source_extraction_cluster
           max_retries: 1
