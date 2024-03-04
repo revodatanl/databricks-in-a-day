@@ -1,0 +1,14 @@
+resources:
+  pipelines:
+    extraction_aviation_training:
+      name: extraction_aviation_training
+      clusters:
+        - num_workers: 1
+          label: default
+      libraries:
+        - notebook:
+            path: ../src/aviation_use_case/dlt_aviation.py
+      development: false
+      catalog: databricks_training
+      channel: PREVIEW
+      target: aviation

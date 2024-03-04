@@ -1,0 +1,57 @@
+include:
+  - "dbxin1d_dlt.yml"
+
+resources:
+  jobs:
+    full_etl_aviation_training:
+      name: full_etl_aviation_training
+      email_notifications:
+        on_success:
+          - kornel.kovacs@revodata.nl
+        on_failure:
+          - kornel.kovacs@revodata.nl
+      schedule:
+        quartz_cron_expression: 32 0 7 * * ?
+        timezone_id: UTC
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: source_extraction
+          spark_python_task:
+            python_file: dbxin1d/src/aviation_use_case/source_extraction.py
+            source: GIT
+          job_cluster_key: source_extraction_cluster
+          max_retries: 1
+          min_retry_interval_millis: 600000
+          retry_on_timeout: true
+          timeout_seconds: 900
+        - task_key: dlt_aviation
+          depends_on:
+            - task_key: source_extraction
+          pipeline_task:
+            pipeline_id: ${resources.pipelines.extraction_aviation_training.id}
+            full_refresh: false
+      job_clusters:
+        - job_cluster_key: source_extraction_cluster
+          new_cluster:
+            cluster_name: ""
+            spark_version: 14.3.x-scala2.12
+            spark_conf:
+              spark.master: local[*, 4]
+              spark.databricks.cluster.profile: singleNode
+            aws_attributes:
+              first_on_demand: 1
+              availability: SPOT_WITH_FALLBACK
+              zone_id: eu-west-2c
+              spot_bid_price_percent: 100
+            node_type_id: m5d.large
+            driver_node_type_id: m5d.large
+            custom_tags:
+              ResourceClass: SingleNode
+            enable_elastic_disk: true
+            data_security_mode: SINGLE_USER
+            runtime_engine: STANDARD
+            num_workers: 0
+      git_source:
+        git_url: https://github.com/revodatanl/databricks-in-a-day
+        git_provider: gitHub
+        git_branch: rework_kornel
