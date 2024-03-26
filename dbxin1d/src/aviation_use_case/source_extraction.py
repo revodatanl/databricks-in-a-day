@@ -45,7 +45,7 @@ payload["flightList"][1]["to"] = extra_days_formatted
 
 # Hitting the API endpoint
 response = requests.post(
-    "https://be.wizzair.com/20.7.1/Api/search/timetable", headers=header, json=payload
+    "https://be.wizzair.com/21.0.0/Api/search/timetable", headers=header, json=payload
 )
 
 # Handling the response from the server
