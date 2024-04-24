@@ -12,7 +12,7 @@ catalog = "databricks_in_a_day"
 schema = "kornelkovacs"
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema}")
 
-df_raw = (
+df_bronze = (
   spark
   .read
   .format("json")
@@ -21,7 +21,7 @@ df_raw = (
   .withColumn("source", F.input_file_name())
   )
 
-df_raw.write.saveAsTable(f"{catalog}.{schema}.wikipedia_bronze", mode="overwrite")
+df_bronze.write.saveAsTable(f"{catalog}.{schema}.wikipedia_bronze", mode="overwrite")
 
 # COMMAND ----------
 
