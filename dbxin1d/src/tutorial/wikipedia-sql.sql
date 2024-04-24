@@ -1,14 +1,18 @@
 -- Databricks notebook source
--- MAGIC %md ## Raw to Bronze
-
--- COMMAND ----------
-
 USE CATALOG databricks_in_a_day;
 USE SCHEMA kornelkovacs
 
 -- COMMAND ----------
 
-CREATE OR REFRESH TABLE wikipedia_bronze COMMENT "The raw wikipedia click stream dataset, ingested from /databricks-datasets." AS
+-- MAGIC %md ## Raw to Bronze
+
+-- COMMAND ----------
+
+DROP TABLE IF EXISTS wikipedia_bronze;
+
+-- COMMAND ----------
+
+CREATE TABLE wikipedia_bronze COMMENT "The raw wikipedia click stream dataset, ingested from /databricks-datasets." AS
 SELECT
   *,
   current_timestamp() as ingestion_timestamp,
