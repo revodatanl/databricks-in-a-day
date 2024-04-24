@@ -27,7 +27,7 @@ def raw_to_bronze():
   )
 def silver_airports():
   return (
-    spark.createDataFrame([{'airport_code': 'EIN', 'city': "EINDHOVEN"}, 
+    spark.createDataFrame([{'airport_code': 'EIN', 'city': "EINDHOVEN"},
                            {'airport_code': 'BUD', 'city': "BUDAPEST"}])
   )
 

@@ -3,11 +3,13 @@
 
 # COMMAND ----------
 
-print("hello Python")
+name = "Kornel"
+
+print(f"Hello, {name}")
 
 # COMMAND ----------
 
-# MAGIC %sql 
+# MAGIC %sql
 # MAGIC select 'hello SQL'
 
 # COMMAND ----------
@@ -22,6 +24,12 @@ raw_files
 # COMMAND ----------
 
 # MAGIC %fs head dbfs:/Volumes/databricks_training/raw/aviation/2024-02-25_prices_EIN_BUD.json
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC
+# MAGIC create temporary view temp_view_aviation as select * from json.`/Volumes/databricks_training/raw/aviation/`
 
 # COMMAND ----------
 
